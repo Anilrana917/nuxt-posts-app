@@ -20,7 +20,6 @@ export const usePostStore = defineStore("postStore", {
 
       try {
         const { data } = await axios.get("https://dummyjson.com/posts");
-        console.log("API Response:", data.posts);
         this.posts = data.posts;
         this.lastFetched = currentTime;
       } catch (error) {
