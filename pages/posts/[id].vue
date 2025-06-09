@@ -20,12 +20,12 @@
 const route = useRoute();
 const router = useRouter();
 
-// Reactive data
+
 const post = ref(null);
 const loading = ref(true);
 const error = ref(null);
 
-// Fetch post data
+
 const fetchPost = async (id) => {
   try {
     loading.value = true;
@@ -38,17 +38,16 @@ const fetchPost = async (id) => {
   } catch (err) {
     error.value = err.message;
     post.value = null;
-    // Optional: redirect to 404 page
-    // throw createError({ statusCode: 404, statusMessage: 'Post Not Found' })
+   
   } finally {
     loading.value = false;
   }
 };
 
-// Initial fetch
+
 fetchPost(route.params.id);
 
-// Watch for route changes
+
 watch(
   () => route.params.id,
   (newId) => {
@@ -56,7 +55,7 @@ watch(
   }
 );
 
-// Handle browser back/forward navigation
+
 onBeforeRouteUpdate(async (to, from) => {
   if (to.params.id !== from.params.id) {
     await fetchPost(to.params.id);

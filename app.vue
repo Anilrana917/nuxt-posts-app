@@ -1,8 +1,13 @@
 <template>
   <div>
-    <header class="bg-blue-600 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <NuxtLink to="/" class="text-xl font-bold">Webreinvent</NuxtLink>
+    <header class="header text-white p-4">
+      <div class="container mx-auto flex gap-6 items-center">
+        <NuxtLink to="/" class="text-xl font-bold"
+          ><img
+            src="https://webreinvent.com/images/logo-webreinvent.svg"
+            alt="logo"
+            width="200px"
+        /></NuxtLink>
         <nav>
           <ul class="flex space-x-6">
             <li>
@@ -19,8 +24,11 @@
 </template>
 
 <script setup>
-const router = useRouter()
-router.beforeEach((to, from) => {
-  console.log('Navigating from', from.path, 'to', to.path)
-})
+
 </script>
+
+<style>
+.header {
+  background-color: #5f4ca4;
+}
+</style>

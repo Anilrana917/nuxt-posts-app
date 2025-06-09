@@ -28,14 +28,6 @@ const { pending } = useAsyncData(async () => {
 });
 
 const navigateToPost = (id) => {
-  // Use both methods for maximum reliability
   navigateTo(`/posts/${id}`);
-
-  // Fallback for stubborn cases (remove if not needed)
-  if (process.client && !window.location.pathname.endsWith(id)) {
-    setTimeout(() => {
-      window.location.assign(`/posts/${id}`);
-    }, 50);
-  }
 };
 </script>
